@@ -15,7 +15,7 @@ export const personalInfo = {
   },
   summary:
     "Motivated Software Development Intern with hands-on experience in Python and SQL, focusing on backend development using Django and FastAPI. Skilled in writing SQL queries and debugging, with version control knowledge using Git.",
-  resumeUrl: "/Pasham_Dhanush_Reddy_Resume.pdf",
+  resumeUrl: `${import.meta.env.BASE_URL}Pasham_Dhanush_Reddy_Resume.pdf`,
 };
 
 export const socialLinks = {
@@ -34,7 +34,7 @@ export const heroContent = {
     text: "Contact Me",
     href: "mailto:pashamdhanushreddy@gmail.com",
   },
-  ctaResume: { text: "Download Resume", href: "/Pasham_Dhanush_Reddy_Resume.pdf" },
+  ctaResume: { text: "Download Resume", href: `${import.meta.env.BASE_URL}Pasham_Dhanush_Reddy_Resume.pdf` },
 };
 
 export const aboutContent = {
