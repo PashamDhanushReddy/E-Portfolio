@@ -32,7 +32,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-black">
+    <section id="home" className="relative w-full h-screen overflow-hidden bg-black">
       {/* Background Video */}
       <video
         ref={videoRef}
@@ -130,6 +130,10 @@ const Hero = () => {
             {/* Primary Button */}
             <a 
               href={heroContent.ctaPrimary.href}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="px-4 py-2 md:px-6 md:py-2 text-xs md:text-base rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 shadow-md"
             >
               {heroContent.ctaPrimary.text}

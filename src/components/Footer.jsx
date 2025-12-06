@@ -15,7 +15,14 @@ const Footer = () => {
 
         <div className="flex flex-col gap-1 md:items-center">
           <p>{footerContent.credential}</p>
-          <a href="#projects" className="underline hover:text-white transition-colors mt-1 underline-offset-4 decoration-1">View Work</a>
+          <a 
+            href="#projects" 
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="underline hover:text-white transition-colors mt-1 underline-offset-4 decoration-1"
+          >View Work</a>
         </div>
 
         <div className="flex flex-col gap-1 md:items-end">
@@ -34,7 +41,14 @@ const Footer = () => {
       {/* Bottom Row */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 w-full items-end font-medium">
         <div className="flex flex-col gap-6">
-          <a href="#contact" className="underline hover:text-white transition-colors underline-offset-4 decoration-1 font-bold">Contact</a>
+          <a 
+            href="#contact" 
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="underline hover:text-white transition-colors underline-offset-4 decoration-1 font-bold"
+          >Contact</a>
           <p className="text-white/60 font-mono text-[9px] md:text-[10px]">
             {footerContent.copyright}
           </p>

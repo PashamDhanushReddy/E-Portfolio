@@ -20,6 +20,19 @@ const Navbar = () => {
 
   const navLinks = ['Home', 'About', 'Skills', 'Projects', 'Contact'];
 
+  const scrollToSection = (e, sectionId) => {
+    e.preventDefault();
+    setIsOpen(false);
+    if (sectionId === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   const hireMeMailto = `mailto:pashamdhanushreddy@gmail.com?subject=Hiring Inquiry – Portfolio&body=Hello Pasham Dhanush Reddy,%0D%0A%0D%0AI came across your portfolio and would like to discuss an opportunity with you.%0D%0A%0D%0ALooking forward to hearing from you.%0D%0ABest Regards,`;
 
   return (
@@ -36,24 +49,32 @@ const Navbar = () => {
         
         {/* Left Side: Logo/Name */}
         <div className="flex items-center">
-          <a href="#" className="text-white text-2xl font-black tracking-tight whitespace-nowrap">
+          <a 
+            href="#" 
+            onClick={(e) => scrollToSection(e, 'home')}
+            className="text-white text-2xl font-black tracking-tight whitespace-nowrap"
+          >
             {personalInfo.brandName}<span className="text-red-500">.</span>
           </a>
         </div>
 
         {/* Center: Desktop Menu Links */}
         <div className="hidden md:flex space-x-8">
-          {navLinks.map((link) => (
-            <a 
-              key={link} 
-              href={`#${link.toLowerCase()}`}
-              className="text-white/80 hover:text-white font-medium relative group transition-colors duration-300"
-            >
-              {link}
-              {/* Smooth hover underline */}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const sectionId = link.toLowerCase();
+            return (
+              <a 
+                key={link} 
+                href={`#${sectionId}`}
+                onClick={(e) => scrollToSection(e, sectionId)}
+                className="text-white/80 hover:text-white font-medium relative group transition-colors duration-300"
+              >
+                {link}
+                {/* Smooth hover underline */}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            );
+          })}
         </div>
 
         {/* Right Side: CTA Button */}
@@ -90,16 +111,19 @@ const Navbar = () => {
         }`}
       >
         <div className="flex flex-col px-6 space-y-4">
-          {navLinks.map((link) => (
-            <a 
-              key={link} 
-              href={`#${link.toLowerCase()}`}
-              onClick={() => setIsOpen(false)}
-              className="text-white hover:text-black font-bold text-lg border-b border-white/20 pb-2 transition-colors"
-            >
-              {link}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const sectionId = link.toLowerCase();
+            return (
+              <a 
+                key={link} 
+                href={`#${sectionId}`}
+                onClick={(e) => scrollToSection(e, sectionId)}
+                className="text-white hover:text-black font-bold text-lg border-b border-white/20 pb-2 transition-colors"
+              >
+                {link}
+              </a>
+            );
+          })}
           <div className="pt-4 pb-2">
              <a 
                href={hireMeMailto}
