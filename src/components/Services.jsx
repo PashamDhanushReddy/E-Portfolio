@@ -31,7 +31,7 @@ const TagCard = ({ number, title, text, className, aosDelay, aosType, pathLength
       ref={ref}
       data-aos={aosType || "fade-up"} 
       data-aos-delay={aosDelay}
-      className={`w-72 sm:w-80 rounded-[2rem] p-2 relative flex flex-col items-center hover:scale-[1.02] transition-all duration-700 z-10 ${className} ${
+      className={`w-full max-w-[320px] sm:w-80 rounded-[2rem] p-2 relative flex flex-col items-center hover:scale-[1.02] transition-all duration-700 z-10 ${className} ${
         isActive ? 'bg-[#ff2a2a] border-red-400 shadow-[0_20px_50px_rgba(255,42,42,0.4)]' : 'bg-white border border-gray-200 shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)]'
       }`}
     >
@@ -41,7 +41,7 @@ const TagCard = ({ number, title, text, className, aosDelay, aosType, pathLength
       </div>
       
       {/* Inner container */}
-      <div className={`w-full h-full rounded-[1.5rem] mt-8 p-8 flex flex-col min-h-[220px] transition-colors duration-700 ${
+      <div className={`w-full h-full rounded-[1.5rem] mt-8 p-6 sm:p-8 flex flex-col min-h-[220px] transition-colors duration-700 ${
         isActive ? 'bg-red-700/50' : 'bg-[#f4f4f4]'
       }`}>
         <span className={`text-xl font-bold mb-2 font-serif italic transition-colors duration-700 ${
@@ -76,16 +76,16 @@ const Services = () => {
     <section 
       id="process"
       ref={containerRef}
-      className="bg-white pt-24 pb-32 px-6 md:px-12 w-full relative overflow-hidden font-sans bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:80px_80px]"
+      className="bg-white pt-16 md:pt-24 pb-24 md:pb-32 px-4 sm:px-6 md:px-12 w-full relative overflow-hidden font-sans bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:80px_80px]"
     >
       <div className="max-w-6xl mx-auto relative md:h-[1350px]">
         
         {/* Header Content */}
-        <div data-aos="fade-up" className="md:absolute top-10 left-0 md:w-[450px] z-20 mb-16 md:mb-0">
-          <div className="inline-block border border-gray-300 rounded-full px-5 py-1.5 text-sm text-gray-600 font-bold mb-8 shadow-sm bg-white">
+        <div data-aos="fade-up" className="md:absolute top-10 left-0 md:w-[450px] z-20 mb-12 md:mb-0">
+          <div className="inline-block border border-gray-300 rounded-full px-5 py-1.5 text-sm text-gray-600 font-bold mb-6 md:mb-8 shadow-sm bg-white">
             {skillsContent.badge}
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.1] mb-6 tracking-tight relative">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.1] mb-6 tracking-tight relative">
             {skillsContent.heading}
             {/* Hand-drawn arrow */}
             <svg className="absolute -bottom-10 right-10 w-12 h-12 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">

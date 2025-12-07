@@ -35,7 +35,7 @@ const SkillCard = ({ category, index }) => (
 
 const TechnicalSkills = () => {
   return (
-    <section id="skills" className="bg-[#0a0a0a] pt-24 pb-28 px-6 md:px-12 w-full relative overflow-hidden font-sans">
+    <section id="skills" className="bg-[#0a0a0a] pt-16 md:pt-24 pb-20 md:pb-28 px-4 sm:px-6 md:px-12 w-full relative overflow-hidden font-sans">
       {/* Background visual elements */}
       <div className="absolute top-1/4 left-10 w-96 h-96 bg-red-600/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-red-500/10 rounded-full blur-[120px] pointer-events-none" />
@@ -43,11 +43,11 @@ const TechnicalSkills = () => {
       <div className="max-w-6xl mx-auto relative z-10">
         
         {/* Header */}
-        <div data-aos="fade-up" className="mb-16 text-center">
+        <div data-aos="fade-up" className="mb-12 md:mb-16 text-center">
           <div className="inline-block border border-white/20 rounded-full px-5 py-1.5 text-sm text-white/60 font-bold mb-6 shadow-sm bg-white/5 backdrop-blur-sm">
             Technical Stack
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight mb-4 uppercase">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-4 uppercase">
             My Skillset
           </h2>
           <p className="text-white/50 text-base md:text-lg max-w-xl mx-auto leading-relaxed">

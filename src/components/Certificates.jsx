@@ -23,7 +23,7 @@ const CertificateCard = ({ cert, aosDelay }) => (
 
 const Certificates = () => {
   return (
-    <section className="bg-[#ff2a2a] pt-20 pb-28 px-6 md:px-12 w-full relative overflow-hidden font-sans">
+    <section className="bg-[#ff2a2a] pt-16 md:pt-20 pb-20 md:pb-28 px-4 sm:px-6 md:px-12 w-full relative overflow-hidden font-sans">
       
       {/* Torn paper divider at top (transition from dark Projects section) */}
       <div className="absolute top-0 left-0 w-full pointer-events-none z-10 transform -translate-y-[1px] rotate-180">
@@ -34,11 +34,11 @@ const Certificates = () => {
 
       <div className="max-w-6xl mx-auto relative z-20">
         {/* Header */}
-        <div data-aos="fade-up" className="mb-12 md:mb-16 text-center">
-          <h2 className="text-4xl md:text-5xl font-black text-black mb-4 tracking-tight">
+        <div data-aos="fade-up" className="mb-10 md:mb-16 text-center">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-black mb-4 tracking-tight">
             Certifications
           </h2>
-          <p className="text-red-100 text-base md:text-lg font-semibold max-w-lg mx-auto">
+          <p className="text-red-100 text-sm sm:text-base md:text-lg font-semibold max-w-lg mx-auto">
             Industry-recognized certifications that validate my technical expertise.
           </p>
         </div>

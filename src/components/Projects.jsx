@@ -122,15 +122,15 @@ const ProjectCard = ({ project, aosDelay }) => (
 
 const Projects = () => {
   return (
-    <section id="projects" className="bg-[#0a0a0a] pt-24 pb-32 px-6 md:px-12 w-full relative overflow-hidden font-sans bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:80px_80px]">
+    <section id="projects" className="bg-[#0a0a0a] pt-16 md:pt-24 pb-24 md:pb-32 px-4 sm:px-6 md:px-12 w-full relative overflow-hidden font-sans bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:80px_80px]">
       <div className="max-w-6xl mx-auto">
         
         {/* Header */}
-        <div data-aos="fade-up" className="mb-16 md:mb-20">
-          <div className="inline-block border border-white/20 rounded-full px-5 py-1.5 text-sm text-white/60 font-bold mb-8 shadow-sm bg-white/5 backdrop-blur-sm">
+        <div data-aos="fade-up" className="mb-12 md:mb-20">
+          <div className="inline-block border border-white/20 rounded-full px-5 py-1.5 text-sm text-white/60 font-bold mb-6 md:mb-8 shadow-sm bg-white/5 backdrop-blur-sm">
             Featured Projects
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-6 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-6 tracking-tight">
             Work that speaks <br className="hidden md:block" />for itself
           </h2>
           <p className="text-white/50 text-base md:text-lg max-w-lg font-medium leading-relaxed">

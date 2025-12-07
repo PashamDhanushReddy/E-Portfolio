@@ -73,14 +73,14 @@ const Contact = () => {
   };
 
   return (
-    <section ref={ref} id="contact" className="bg-[#0a0a0a] w-full min-h-screen relative overflow-hidden flex items-end pt-32 pb-0 md:pb-0 border-t border-gray-900">
+    <section ref={ref} id="contact" className="bg-[#0a0a0a] w-full min-h-screen relative overflow-hidden flex items-end pt-20 md:pt-32 pb-0 md:pb-0 border-t border-gray-900">
       {/* Huge Background Text */}
       <motion.div 
         style={{ y }}
         className="absolute top-0 left-0 w-full h-full flex flex-col justify-start items-center overflow-hidden pointer-events-none z-0 pt-16 md:pt-12"
       >
         <h1 
-          className="text-[25vw] leading-[0.75] font-black text-white uppercase tracking-tighter select-none scale-y-[1.6] origin-top"
+          className="text-[25vw] leading-[0.75] font-black text-white uppercase tracking-tighter select-none scale-y-[1.6] origin-top opacity-80"
           style={{ fontFamily: "'Impact', 'Arial Black', sans-serif" }}
         >
           Contact
@@ -91,7 +91,7 @@ const Contact = () => {
       <div className="relative z-10 w-full flex justify-end items-end">
         <div 
           data-aos="fade-up"
-          className="bg-[#ff2a2a] w-full md:w-[85%] lg:w-[75%] p-8 md:p-16 text-white flex flex-col justify-between"
+          className="bg-[#ff2a2a] w-full md:w-[85%] lg:w-[75%] p-5 sm:p-8 md:p-16 text-white flex flex-col justify-between shadow-2xl"
         >
           <div className="flex flex-col sm:flex-row justify-between items-start gap-8 mb-12">
             <div className="text-xs font-bold tracking-[0.2em] uppercase opacity-90">

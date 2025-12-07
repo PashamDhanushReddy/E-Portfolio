@@ -43,7 +43,7 @@ const LeadershipItem = ({ item, index }) => {
 
 const Leadership = () => {
   return (
-    <section className="bg-[#0a0a0a] pt-24 pb-32 px-6 md:px-12 w-full relative overflow-hidden font-sans bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:80px_80px]">
+    <section className="bg-[#0a0a0a] pt-16 md:pt-24 pb-20 md:pb-32 px-4 sm:px-6 md:px-12 w-full relative overflow-hidden font-sans bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:80px_80px]">
       
       {/* Torn paper divider at top */}
       <div className="absolute top-0 left-0 w-full pointer-events-none z-10 transform -translate-y-[1px] rotate-180">
@@ -55,11 +55,11 @@ const Leadership = () => {
       <div className="max-w-6xl mx-auto relative z-20">
         
         {/* Header */}
-        <div data-aos="fade-up" className="mb-20 text-center">
+        <div data-aos="fade-up" className="mb-12 md:mb-20 text-center">
           <div className="inline-block border border-white/20 rounded-full px-5 py-1.5 text-sm text-white/60 font-bold mb-6 shadow-sm bg-white/5 backdrop-blur-sm">
             Activities
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight mb-4 uppercase">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-4 uppercase">
             Leadership & Engagement
           </h2>
           <p className="text-white/50 text-base md:text-lg max-w-lg mx-auto leading-relaxed">

@@ -32,7 +32,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative w-full h-screen overflow-hidden bg-black">
+    <section id="home" className="relative w-full h-[100dvh] min-h-[560px] overflow-hidden bg-black">
       {/* Background Video */}
       <video
         ref={videoRef}
@@ -83,7 +83,7 @@ const Hero = () => {
       </div>
 
       {/* Content Container */}
-      <div className="absolute inset-0 z-20 px-6 pb-20 md:pb-[8%] md:px-12 max-w-7xl mx-auto flex flex-col md:flex-row justify-end md:justify-between items-start md:items-end text-left w-full">
+      <div className="absolute inset-0 z-20 px-4 sm:px-6 pb-12 sm:pb-20 md:pb-[8%] md:px-12 max-w-7xl mx-auto flex flex-col md:flex-row justify-center md:justify-between items-start md:items-end text-left w-full pt-16 md:pt-0">
         
         {/* Left Side: Text and Buttons */}
         <div className="flex flex-col items-start text-left max-w-2xl w-full">
@@ -107,9 +107,9 @@ const Hero = () => {
           {/* Main Heading */}
           <h1 
             data-aos="fade-up"
-            className="text-white text-3xl md:text-5xl font-bold mb-4 tracking-tight"
+            className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-4 tracking-tight"
           >
-            {heroContent.greeting}, <br /> <span className="text-transparent [-webkit-text-stroke:1.5px_black]">{heroContent.titleHighlight}</span>
+            {heroContent.greeting}, <br /> <span className="text-transparent [-webkit-text-stroke:1.5px_white] drop-shadow-md">{heroContent.titleHighlight}</span>
           </h1>
 
           {/* Subheading */}

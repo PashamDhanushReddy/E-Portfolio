@@ -41,11 +41,11 @@ const ReactIcon = () => (
 
 const About = () => {
   return (
-    <section id="about" className="bg-[#ff2a2a] pt-20 pb-40 px-6 md:px-12 w-full relative overflow-hidden font-sans">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-16 items-start">
+    <section id="about" className="bg-[#ff2a2a] pt-16 md:pt-20 pb-28 md:pb-40 px-4 sm:px-6 md:px-12 w-full relative overflow-hidden font-sans">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-10 md:gap-16 items-center md:items-start text-center md:text-left">
         
         {/* Left Side: ID Badge and Skills */}
-        <div className="flex flex-col items-center w-full md:w-[350px] shrink-0 mt-12 md:mt-0">
+        <div className="flex flex-col items-center w-full md:w-[350px] shrink-0 mt-8 md:mt-0">
           
           <div data-aos="drop-bounce" className="relative flex justify-center w-full">
             {/* Lanyard string */}
@@ -54,7 +54,7 @@ const About = () => {
             <div className="absolute -top-6 left-1/2 w-6 h-12 bg-gray-300 rounded border border-gray-400 transform -translate-x-1/2 z-10 shadow-[0_2px_10px_rgba(0,0,0,0.3)]"></div>
             
             {/* Badge Card */}
-            <div className="bg-gray-900 w-full max-w-[280px] rounded-2xl p-3 shadow-[0_20px_40px_rgba(0,0,0,0.4)] relative z-20 transform -rotate-3 hover:rotate-0 transition-transform duration-500">
+            <div className="bg-gray-900 w-full max-w-[260px] sm:max-w-[280px] rounded-2xl p-3 shadow-[0_20px_40px_rgba(0,0,0,0.4)] relative z-20 transform -rotate-3 hover:rotate-0 transition-transform duration-500">
               {/* Cutout Hole */}
               <div className="absolute -top-3 left-1/2 w-16 h-6 bg-gray-900 rounded-t-xl transform -translate-x-1/2 flex justify-center items-center">
                 <div className="w-8 h-2 bg-black/30 rounded-full shadow-inner"></div>
@@ -73,16 +73,16 @@ const About = () => {
         </div>
 
         {/* Right Side: Info Content */}
-        <div data-aos="fade-left" data-aos-delay="200" className="flex-1 text-white mt-8 md:mt-0 relative z-20">
+        <div data-aos="fade-left" data-aos-delay="200" className="flex-1 text-white mt-4 md:mt-0 relative z-20 flex flex-col items-center md:items-start">
           
-          <h2 className="text-4xl md:text-5xl font-black text-black mb-4">{aboutContent.heading}</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-black mb-4 text-center md:text-left">{aboutContent.heading}</h2>
           <p 
-            className="text-lg font-bold mb-12 leading-relaxed max-w-3xl text-red-50"
+            className="text-base sm:text-lg font-bold mb-8 md:mb-12 leading-relaxed max-w-3xl text-red-50 text-center md:text-left"
             dangerouslySetInnerHTML={{ __html: aboutContent.bio }}
           />
 
           {/* Horizontal Skills Row */}
-          <div className="flex items-center gap-10 mt-8">
+          <div className="flex items-center justify-center md:justify-start gap-6 sm:gap-10 mt-6 md:mt-8 flex-wrap">
             <div data-aos="zoom-in" data-aos-delay="300" className="hover:scale-110 transition-transform duration-300 cursor-pointer drop-shadow-2xl">
               <PythonIcon />
             </div>
