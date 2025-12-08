@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import Preloader from './components/Preloader'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -16,6 +18,18 @@ import Footer from './components/Footer'
 
 function App() {
   useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: 'ease-out',
+      offset: 50, // trigger animations earlier
+    });
+
+    // Refresh AOS after preloader completes to recalculate positions
+    const timeout = setTimeout(() => {
+      AOS.refresh();
+    }, 2500);
+
     // Disable automatic browser scroll restoration on reload
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual';
@@ -35,6 +49,7 @@ function App() {
 
     window.addEventListener('beforeunload', handleBeforeUnload);
     return () => {
+      clearTimeout(timeout);
       window.removeEventListener('beforeunload', handleBeforeUnload);
     };
   }, []);

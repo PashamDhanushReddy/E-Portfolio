@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+
 import heroVideo from '../assets/hero video/yusuf-hero.mp4';
 import { heroContent, personalInfo, socialLinks } from '../data/portfolioData';
 
@@ -10,11 +9,6 @@ const Hero = () => {
   const [isMuted, setIsMuted] = useState(false);
 
   useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-      easing: 'ease-out'
-    });
     // Video does NOT autoplay anymore
   }, []);
 
