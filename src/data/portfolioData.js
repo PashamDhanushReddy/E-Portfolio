@@ -357,14 +357,32 @@ export const certificates = {
   viewAllUrl: "#",
 };
 
-export const education = {
-  degree: "B.Tech – Computer Science & Engineering",
-  institution: "Narsimha Reddy Engineering College",
-  cgpa: "8.80",
-  graduation: "Present",
-  twelfth: "Intermediate (MPC) – 95%",
-  tenth: "SSC – 100%",
-};
+export const educationList = [
+  {
+    institution: "Narsimha Reddy Engineering College",
+    degree: "B.Tech – Computer Science & Engineering",
+    duration: "Present",
+    score: "CGPA: 8.80",
+    highlights: ["Data Structures & Algorithms", "Operating Systems", "Computer Networks", "Software Engineering"],
+    tech: ["Python", "Java", "C++", "SQL"]
+  },
+  {
+    institution: "Sri Vijay Sai Junior College",
+    degree: "Intermediate (MPC)",
+    duration: "Year of Passing : 2023",
+    score: "Percentage: 95%",
+    highlights: ["Mathematics", "Physics", "Chemistry"],
+    tech: []
+  },
+  {
+    institution: "Vamsi High School",
+    degree: "SSC",
+    duration: "2021",
+    score: "Percentage: 100%",
+    highlights: [],
+    tech: []
+  }
+];
 
 export const footerContent = {
   taglines: [
