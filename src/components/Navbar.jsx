@@ -18,7 +18,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = ['Home', 'About', 'Skills', 'Projects', 'Contact'];
+  const navLinks = ['Home', 'About', 'Education', 'Skills', 'Projects', 'Contact'];
 
   const scrollToSection = (e, sectionId) => {
     e.preventDefault();

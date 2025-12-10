@@ -62,7 +62,7 @@ const EducationCard = ({ edu, index }) => (
 
 const Education = () => {
   return (
-    <section className="bg-black pt-16 md:pt-24 pb-24 md:pb-32 px-4 sm:px-6 md:px-12 w-full relative overflow-hidden font-sans">
+    <section id="education" className="bg-black pt-16 md:pt-24 pb-24 md:pb-32 px-4 sm:px-6 md:px-12 w-full relative overflow-hidden font-sans">
       
       {/* Decorative background element */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#ff2a2a]/10 to-transparent pointer-events-none" />

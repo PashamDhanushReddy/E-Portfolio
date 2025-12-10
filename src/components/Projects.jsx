@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { projects, socialLinks } from '../data/portfolioData';
 
 const GitHubIcon = () => (
@@ -38,7 +38,7 @@ const ProjectCard = ({ project, aosDelay }) => (
       {/* Number + Title */}
       <div className="flex items-baseline gap-4 mb-4">
         <span className="text-5xl font-black text-white/10 font-serif italic">{project.number}</span>
-        <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight">{project.title}</h3>
+        <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight capitalize">{project.title}</h3>
       </div>
 
       {/* Description */}
@@ -90,7 +90,7 @@ const ProjectCard = ({ project, aosDelay }) => (
           </a>
         )}
 
-        {/* Frontend Demo (Karigar) */}
+        {/* Frontend Demo */}
         {project.links.frontendDemo && (
           <a 
             href={project.links.frontendDemo}
@@ -103,7 +103,7 @@ const ProjectCard = ({ project, aosDelay }) => (
           </a>
         )}
 
-        {/* Backend API (Karigar) */}
+        {/* Backend API */}
         {project.links.backendApi && (
           <a 
             href={project.links.backendApi}
@@ -121,6 +121,79 @@ const ProjectCard = ({ project, aosDelay }) => (
 );
 
 const Projects = () => {
+  const [repoProjects, setRepoProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchRepos = async () => {
+      try {
+        const response = await fetch('https://api.github.com/users/PashamDhanushReddy/repos?sort=updated&per_page=100');
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch from GitHub');
+        }
+
+        const data = await response.json();
+        
+        // Filter out forks so we only show original work, and hide the profile readme repo
+        const originalRepos = data.filter(repo => !repo.fork && repo.name !== 'PashamDhanushReddy');
+        
+        // Map GitHub data and merge with our custom config from portfolioData.js
+        const mergedProjects = originalRepos.map((repo, index) => {
+          // Attempt to find a local configuration for this repo based on URL or title similarity
+          const localConfig = projects.find(p => {
+            const githubLinkMatch = p.links?.github && p.links.github.toLowerCase().endsWith(repo.name.toLowerCase());
+            const titleMatch = p.title.toLowerCase().replace(/ /g, '-') === repo.name.toLowerCase();
+            return githubLinkMatch || titleMatch;
+          });
+
+          return {
+            id: repo.name,
+            number: String(index + 1).padStart(2, '0'),
+            badge: localConfig?.badge || (repo.topics?.length > 0 ? repo.topics[0] : "Project"),
+            title: localConfig?.title || repo.name.replace(/[-_]/g, ' '),
+            description: localConfig?.description || repo.description || "A project by Pasham Dhanush Reddy.",
+            techTags: localConfig?.techTags || [repo.language, ...(repo.topics || [])].filter(Boolean),
+            links: {
+              github: repo.html_url,
+              // If local config explicitly defined demo as null, keep it null.
+              // Otherwise, use local config demo URL or the repo's homepage URL.
+              demo: localConfig && localConfig.links.demo !== undefined 
+                ? localConfig.links.demo 
+                : (repo.homepage || undefined),
+              frontendDemo: localConfig?.links?.frontendDemo,
+              backendApi: localConfig?.links?.backendApi,
+            },
+            isFlagship: localConfig ? localConfig.isFlagship : (repo.stargazers_count > 0),
+          };
+        });
+
+        // Let's bring flagship projects to the top, then sort the rest by recently updated
+        const sortedProjects = mergedProjects.sort((a, b) => {
+          if (a.isFlagship && !b.isFlagship) return -1;
+          if (!a.isFlagship && b.isFlagship) return 1;
+          return 0;
+        });
+
+        // Reassign numbers after sorting
+        const finalizedProjects = sortedProjects.map((p, i) => ({
+          ...p,
+          number: String(i + 1).padStart(2, '0')
+        }));
+
+        setRepoProjects(finalizedProjects);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching repos:", error);
+        // Fallback to purely local projects if the API fails
+        setRepoProjects(projects);
+        setLoading(false);
+      }
+    };
+
+    fetchRepos();
+  }, []);
+
   return (
     <section id="projects" className="bg-[#0a0a0a] pt-16 md:pt-24 pb-24 md:pb-32 px-4 sm:px-6 md:px-12 w-full relative overflow-hidden font-sans bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:80px_80px]">
       <div className="max-w-6xl mx-auto">
@@ -134,20 +207,27 @@ const Projects = () => {
             Work that speaks <br className="hidden md:block" />for itself
           </h2>
           <p className="text-white/50 text-base md:text-lg max-w-lg font-medium leading-relaxed">
-            A selection of projects that showcase my expertise in full-stack development and modern architecture.
+            A selection of projects that showcase my expertise in full-stack development and modern architecture, automatically updated from GitHub.
           </p>
         </div>
 
-        {/* Project Cards */}
-        <div className="flex flex-col gap-6 md:gap-8">
-          {projects.map((project, index) => (
-            <ProjectCard 
-              key={project.id} 
-              project={project} 
-              aosDelay={String((index + 1) * 100)}
-            />
-          ))}
-        </div>
+        {/* Loading State */}
+        {loading ? (
+          <div className="flex justify-center items-center py-20">
+            <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-red-500"></div>
+          </div>
+        ) : (
+          /* Project Cards */
+          <div className="flex flex-col gap-6 md:gap-8">
+            {repoProjects.map((project, index) => (
+              <ProjectCard 
+                key={project.id} 
+                project={project} 
+                aosDelay={String((index + 1) * 100 > 1000 ? 100 : (index + 1) * 100)} // max out delay to prevent excessive wait
+              />
+            ))}
+          </div>
+        )}
 
         {/* GitHub CTA */}
         <div data-aos="fade-up" data-aos-delay="500" className="mt-16 flex justify-center">

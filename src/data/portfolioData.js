@@ -177,7 +177,6 @@ export const projects = [
     techTags: ["React", "Django Rest API", "PostgreSQL", "Render"],
     links: {
       github: "https://github.com/PashamDhanushReddy/TalentLink",
-      demo: null,
     },
     isFlagship: true,
   },

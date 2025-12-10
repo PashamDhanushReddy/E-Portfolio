@@ -29,7 +29,7 @@ const Preloader = () => {
           <motion.div 
             exit={{ opacity: 0, scale: 0.95, y: -20 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="relative text-5xl md:text-7xl font-black tracking-tighter"
+            className="relative text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter text-center w-full px-4"
           >
             {/* Background text (empty state) */}
             <div className="text-red-900/30">
@@ -38,12 +38,12 @@ const Preloader = () => {
 
             {/* Foreground text (water fill state) */}
             <motion.div 
-              className="absolute top-0 left-0 text-white overflow-hidden whitespace-nowrap"
+              className="absolute inset-0 text-white overflow-hidden flex flex-col justify-center items-center"
               initial={{ clipPath: 'inset(100% 0 0 0)' }}
               animate={{ clipPath: 'inset(0% 0 0 0)' }}
               transition={{ duration: 1.6, ease: "easeInOut", delay: 0.2 }}
             >
-              {personalInfo.brandName}<span className="text-black">.</span>
+              <div>{personalInfo.brandName}<span className="text-black">.</span></div>
             </motion.div>
           </motion.div>
 

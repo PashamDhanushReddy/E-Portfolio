@@ -15,6 +15,7 @@ import Certificates from './components/Certificates'
 import SoftSkills from './components/SoftSkills'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import FloatingBadge from './components/FloatingBadge'
 
 function App() {
   useEffect(() => {
@@ -70,6 +71,7 @@ function App() {
       <SoftSkills />
       <Contact />
       <Footer />
+      <FloatingBadge />
     </>
   )
 }
