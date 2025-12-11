@@ -1,6 +1,5 @@
 import React from 'react';
 import { certificates } from '../data/portfolioData';
-
 const CertificateCard = ({ cert, aosDelay }) => (
   <div 
     data-aos="zoom-in"
@@ -20,20 +19,15 @@ const CertificateCard = ({ cert, aosDelay }) => (
     </div>
   </div>
 );
-
 const Certificates = () => {
   return (
     <section className="bg-[#ff2a2a] pt-16 md:pt-20 pb-20 md:pb-28 px-4 sm:px-6 md:px-12 w-full relative overflow-hidden font-sans">
-      
-      {/* Torn paper divider at top (transition from dark Projects section) */}
       <div className="absolute top-0 left-0 w-full pointer-events-none z-10 transform -translate-y-[1px] rotate-180">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-12 md:h-20 fill-[#0a0a0a]">
           <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,119.62,189.5,99.8,242.79,81.82,282.88,63.6,321.39,56.44Z"></path>
         </svg>
       </div>
-
       <div className="max-w-6xl mx-auto relative z-20">
-        {/* Header */}
         <div data-aos="fade-up" className="mb-10 md:mb-16 text-center">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-black mb-4 tracking-tight">
             Certifications
@@ -42,8 +36,6 @@ const Certificates = () => {
             Industry-recognized certifications that validate my technical expertise.
           </p>
         </div>
-
-        {/* Certificate Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12">
           {certificates.featured.map((cert, index) => (
             <CertificateCard 
@@ -53,8 +45,6 @@ const Certificates = () => {
             />
           ))}
         </div>
-
-        {/* View All Certificates CTA */}
         <div data-aos="fade-up" data-aos-delay="700" className="flex justify-center">
           <a
             href={certificates.viewAllUrl}
@@ -72,8 +62,6 @@ const Certificates = () => {
           </a>
         </div>
       </div>
-
-      {/* Decorative stars (matching About section) */}
       <div className="absolute top-16 left-6 md:left-16 text-black opacity-20 animate-pulse">
         <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5L23 12l-8.5 2.5L12 23l-2.5-8.5L1 12l8.5-2.5z"/></svg>
       </div>
@@ -83,5 +71,4 @@ const Certificates = () => {
     </section>
   );
 };
-
 export default Certificates;

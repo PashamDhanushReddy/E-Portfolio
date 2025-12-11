@@ -28,7 +28,7 @@ const EducationCard = ({ edu, index }) => (
         </span>
       </div>
 
-      {/* Highlights */}
+      
       {edu.highlights && edu.highlights.length > 0 && (
         <div className="mb-6">
           <h4 className="text-white/60 text-xs font-bold uppercase tracking-wider mb-2">Key Highlights:</h4>
@@ -41,22 +41,6 @@ const EducationCard = ({ edu, index }) => (
       )}
     </div>
 
-    {/* Technologies / Skills */}
-    {/* {edu.tech && edu.tech.length > 0 && (
-      // <div className="pt-4 border-t border-white/10">
-      //   <h4 className="text-white/60 text-xs font-bold uppercase tracking-wider mb-3">Relevant Skills:</h4>
-      //   <div className="flex flex-wrap gap-2">
-      //     {edu.tech.map((t) => (
-      //       <span 
-      //         key={t}
-      //         className="px-3 py-1 text-xs font-mono font-bold text-white bg-white/10 rounded-full border border-white/10 hover:bg-white/20 transition-all"
-      //       >
-      //         {t}
-      //       </span>
-      //     ))}
-      //   </div>
-      // </div>
-    )} */}
   </div>
 );
 
@@ -64,12 +48,12 @@ const Education = () => {
   return (
     <section id="education" className="bg-black pt-16 md:pt-24 pb-24 md:pb-32 px-4 sm:px-6 md:px-12 w-full relative overflow-hidden font-sans">
       
-      {/* Decorative background element */}
+      
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#ff2a2a]/10 to-transparent pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-20">
         
-        {/* Header */}
+        
         <div data-aos="fade-up" className="mb-12 md:mb-20 text-center">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 tracking-tight uppercase">
             Education
@@ -79,7 +63,7 @@ const Education = () => {
           </p>
         </div>
 
-        {/* Education Cards Grid */}
+        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {educationList.map((edu, index) => (
             <EducationCard key={edu.institution} edu={edu} index={index} />

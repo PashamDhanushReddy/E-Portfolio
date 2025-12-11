@@ -1,40 +1,29 @@
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { emailjsConfig, personalInfo, socialLinks } from '../data/portfolioData';
-
 const Contact = () => {
   const ref = useRef(null);
   const formRef = useRef(null);
-  const [status, setStatus] = useState('idle'); // idle, sending, success, error
-
+  const [status, setStatus] = useState('idle'); 
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"]
   });
-  
-  // Parallax translation for the big text
   const y = useTransform(scrollYProgress, [0, 1], ["-20%", "30%"]);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (status === 'sending') return; // Prevent duplicate submissions
-
+    if (status === 'sending') return; 
     setStatus('sending');
-
     const form = formRef.current;
     const firstName = form.querySelector('#firstName')?.value || '';
     const lastName = form.querySelector('#lastName')?.value || '';
     const email = form.querySelector('#email')?.value || '';
     const message = form.querySelector('#message')?.value || '';
-
-    // Validate inputs
     if (!firstName.trim() || !email.trim() || !message.trim()) {
       setStatus('error');
       setTimeout(() => setStatus('idle'), 3000);
       return;
     }
-
-    // Check if EmailJS is configured (checking both placeholder values and falsy states)
     const isConfigured = 
       emailjsConfig.serviceId && 
       emailjsConfig.serviceId !== 'YOUR_EMAILJS_SERVICE_ID' &&
@@ -42,9 +31,7 @@ const Contact = () => {
       emailjsConfig.templateId !== 'YOUR_EMAILJS_TEMPLATE_ID' &&
       emailjsConfig.publicKey && 
       emailjsConfig.publicKey !== 'YOUR_EMAILJS_PUBLIC_KEY';
-
     if (!isConfigured) {
-      // EmailJS not configured — fallback to prefilled mailto
       const mailtoLink = `mailto:${personalInfo.emails.primary}?subject=Portfolio Contact from ${firstName} ${lastName}&body=${encodeURIComponent(`From: ${firstName} ${lastName}\nEmail: ${email}\n\n${message}`)}`;
       window.open(mailtoLink, '_blank');
       setStatus('success');
@@ -52,8 +39,6 @@ const Contact = () => {
       setTimeout(() => setStatus('idle'), 3000);
       return;
     }
-
-    // EmailJS integration
     try {
       const emailjs = await import('@emailjs/browser');
       await emailjs.sendForm(
@@ -68,13 +53,10 @@ const Contact = () => {
       console.error('EmailJS Error:', error);
       setStatus('error');
     }
-
     setTimeout(() => setStatus('idle'), 4000);
   };
-
   return (
     <section ref={ref} id="contact" className="bg-[#0a0a0a] w-full min-h-screen relative overflow-hidden flex items-end pt-20 md:pt-32 pb-0 md:pb-0 border-t border-gray-900">
-      {/* Huge Background Text */}
       <motion.div 
         style={{ y }}
         className="absolute top-0 left-0 w-full h-full flex flex-col justify-start items-center overflow-hidden pointer-events-none z-0 pt-16 md:pt-12"
@@ -86,8 +68,6 @@ const Contact = () => {
           Contact
         </h1>
       </motion.div>
-
-      {/* Form Card Overlay */}
       <div className="relative z-10 w-full flex justify-end items-end">
         <div 
           data-aos="fade-up"
@@ -97,7 +77,6 @@ const Contact = () => {
             <div className="text-xs font-bold tracking-[0.2em] uppercase opacity-90">
               Reach Me
             </div>
-            {/* Instagram Quick Link */}
             <a 
               href={socialLinks.instagram} 
               target="_blank" 
@@ -108,10 +87,8 @@ const Contact = () => {
               DM on Instagram
             </a>
           </div>
-
           <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-12 md:gap-16 w-full">
             <div className="flex flex-col md:flex-row gap-12 md:gap-20 w-full">
-              {/* Left Column */}
               <div className="flex-1 flex flex-col gap-10">
                 <div className="relative">
                   <input 
@@ -143,8 +120,6 @@ const Contact = () => {
                   />
                 </div>
               </div>
-
-              {/* Right Column */}
               <div className="flex-1 flex flex-col">
                 <div className="relative h-full flex flex-col">
                   <textarea 
@@ -157,10 +132,7 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-
-            {/* Bottom Section */}
             <div className="flex flex-col md:flex-row gap-12 mt-4">
-              {/* Left text */}
               <div className="flex-1 flex items-start gap-4 text-sm font-medium text-white/90">
                 <input 
                   type="checkbox" 
@@ -172,8 +144,6 @@ const Contact = () => {
                   I give permission to contact me at this email address.
                 </label>
               </div>
-
-              {/* Right text & button */}
               <div className="flex-1 flex flex-col gap-8 text-xs text-white/70 font-medium">
                 <p className="leading-relaxed max-w-[400px]">
                   Your message will be sent directly to my inbox. I typically respond within 24-48 hours.
@@ -182,7 +152,6 @@ const Contact = () => {
                   <p className="max-w-[250px] leading-relaxed">
                     For urgent inquiries, reach me at <a href={`mailto:${personalInfo.emails.primary}`} className="underline hover:text-white transition-colors">{personalInfo.emails.primary}</a>
                   </p>
-                  
                   <button 
                     type="submit" 
                     disabled={status === 'sending'}
@@ -213,7 +182,6 @@ const Contact = () => {
                         Failed — Try Again
                       </span>
                     ) : 'Send Message'}
-                    
                     {status === 'idle' && (
                       <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -224,11 +192,9 @@ const Contact = () => {
               </div>
             </div>
           </form>
-
         </div>
       </div>
     </section>
   );
 };
-
 export default Contact;

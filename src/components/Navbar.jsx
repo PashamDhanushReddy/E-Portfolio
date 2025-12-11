@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { personalInfo } from '../data/portfolioData';
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-
-  // Handle scroll to make navbar more solid
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -17,9 +14,7 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
   const navLinks = ['Home', 'About', 'Education', 'Skills', 'Projects', 'Contact'];
-
   const scrollToSection = (e, sectionId) => {
     e.preventDefault();
     setIsOpen(false);
@@ -32,9 +27,7 @@ const Navbar = () => {
       }
     }
   };
-
   const hireMeMailto = `mailto:pashamdhanushreddy@gmail.com?subject=Hiring Inquiry – Portfolio&body=Hello Pasham Dhanush Reddy,%0D%0A%0D%0AI came across your portfolio and would like to discuss an opportunity with you.%0D%0A%0D%0ALooking forward to hearing from you.%0D%0ABest Regards,`;
-
   return (
     <nav 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -46,8 +39,6 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-        
-        {/* Left Side: Logo/Name */}
         <div className="flex items-center">
           <a 
             href="#" 
@@ -57,8 +48,6 @@ const Navbar = () => {
             {personalInfo.brandName}<span className="text-red-500">.</span>
           </a>
         </div>
-
-        {/* Center: Desktop Menu Links */}
         <div className="hidden md:flex space-x-8">
           {navLinks.map((link) => {
             const sectionId = link.toLowerCase();
@@ -70,14 +59,11 @@ const Navbar = () => {
                 className="text-white/80 hover:text-white font-medium relative group transition-colors duration-300"
               >
                 {link}
-                {/* Smooth hover underline */}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full"></span>
               </a>
             );
           })}
         </div>
-
-        {/* Right Side: CTA Button */}
         <div className="hidden md:block">
           <a 
             href={hireMeMailto}
@@ -86,8 +72,6 @@ const Navbar = () => {
             Hire Me
           </a>
         </div>
-
-        {/* Mobile Hamburger Menu Icon */}
         <div className="md:hidden flex items-center">
           <button 
             onClick={() => setIsOpen(!isOpen)}
@@ -103,8 +87,6 @@ const Navbar = () => {
           </button>
         </div>
       </div>
-
-      {/* Mobile Slide-Down Menu */}
       <div 
         className={`md:hidden absolute top-full left-0 w-full transition-all duration-300 overflow-hidden ${
           isOpen ? 'max-h-96 py-4 opacity-100 bg-[#ff2a2a] shadow-2xl' : 'max-h-0 opacity-0 bg-transparent'
@@ -138,5 +120,4 @@ const Navbar = () => {
     </nav>
   );
 };
-
 export default Navbar;

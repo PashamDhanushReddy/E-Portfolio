@@ -1,6 +1,5 @@
 import React from 'react';
 import { technicalSkills } from '../data/portfolioData';
-
 const SkillProgress = ({ name, level }) => (
   <div className="mb-4">
     <div className="flex justify-between items-center mb-1">
@@ -15,7 +14,6 @@ const SkillProgress = ({ name, level }) => (
     </div>
   </div>
 );
-
 const SkillCard = ({ category, index }) => (
   <div 
     data-aos="fade-up"
@@ -32,17 +30,12 @@ const SkillCard = ({ category, index }) => (
     </div>
   </div>
 );
-
 const TechnicalSkills = () => {
   return (
     <section id="skills" className="bg-[#0a0a0a] pt-16 md:pt-24 pb-20 md:pb-28 px-4 sm:px-6 md:px-12 w-full relative overflow-hidden font-sans">
-      {/* Background visual elements */}
       <div className="absolute top-1/4 left-10 w-96 h-96 bg-red-600/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-red-500/10 rounded-full blur-[120px] pointer-events-none" />
-
       <div className="max-w-6xl mx-auto relative z-10">
-        
-        {/* Header */}
         <div data-aos="fade-up" className="mb-12 md:mb-16 text-center">
           <div className="inline-block border border-white/20 rounded-full px-5 py-1.5 text-sm text-white/60 font-bold mb-6 shadow-sm bg-white/5 backdrop-blur-sm">
             Technical Stack
@@ -54,17 +47,13 @@ const TechnicalSkills = () => {
             A comprehensive overview of my programming languages, frameworks, databases, and engineering concepts.
           </p>
         </div>
-
-        {/* Skills Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {technicalSkills.categories.map((category, index) => (
             <SkillCard key={category.title} category={category} index={index} />
           ))}
         </div>
-
       </div>
     </section>
   );
 };
-
 export default TechnicalSkills;

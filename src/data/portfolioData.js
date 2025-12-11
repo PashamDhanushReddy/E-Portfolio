@@ -1,6 +1,3 @@
-// ============================================================
-// portfolioData.js — Centralized configuration for Pasham Dhanush Reddy's Portfolio
-// ============================================================
 
 export const personalInfo = {
   name: "Pasham Dhanush Reddy",
@@ -112,7 +109,6 @@ export const technicalSkills = {
   ]
 };
 
-// Repurposed content creation for continuous learning to keep layout intact
 export const contentCreation = {
   badge: "Beyond Coding",
   heading: "Continuous Learning & Exploration",
@@ -393,7 +389,6 @@ export const footerContent = {
   copyright: `© ${new Date().getFullYear()} Pasham Dhanush Reddy | Built with React`,
 };
 
-// EmailJS Configuration
 export const emailjsConfig = {
   serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID || "YOUR_EMAILJS_SERVICE_ID",
   templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "YOUR_EMAILJS_TEMPLATE_ID",
