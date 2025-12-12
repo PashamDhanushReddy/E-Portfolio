@@ -34,7 +34,7 @@ const Navbar = () => {
         isOpen 
           ? 'bg-[#ff2a2a] py-4'
           : isScrolled 
-            ? 'bg-transparent py-4' 
+            ? 'bg-black/40 backdrop-blur-md py-4 shadow-lg border-b border-white/5' 
             : 'bg-transparent py-6'
       }`}
     >
@@ -43,7 +43,7 @@ const Navbar = () => {
           <a 
             href="#" 
             onClick={(e) => scrollToSection(e, 'home')}
-            className="text-white text-2xl font-black tracking-tight whitespace-nowrap"
+            className="text-white text-xl sm:text-2xl font-black tracking-tight whitespace-nowrap"
           >
             {personalInfo.brandName}<span className="text-red-500">.</span>
           </a>
@@ -75,7 +75,7 @@ const Navbar = () => {
         <div className="md:hidden flex items-center">
           <button 
             onClick={() => setIsOpen(!isOpen)}
-            className="text-white focus:outline-none p-2"
+            className="text-white focus:outline-none p-2 ml-4 shrink-0"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isOpen ? (
@@ -89,7 +89,7 @@ const Navbar = () => {
       </div>
       <div 
         className={`md:hidden absolute top-full left-0 w-full transition-all duration-300 overflow-hidden ${
-          isOpen ? 'max-h-96 py-4 opacity-100 bg-[#ff2a2a] shadow-2xl' : 'max-h-0 opacity-0 bg-transparent'
+          isOpen ? 'max-h-screen pb-6 pt-4 opacity-100 bg-[#ff2a2a] shadow-2xl' : 'max-h-0 opacity-0 bg-transparent'
         }`}
       >
         <div className="flex flex-col px-6 space-y-4">
