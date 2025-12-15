@@ -386,7 +386,7 @@ export const footerContent = {
     "Full Stack Applications",
   ],
   credential: "B.Tech CSE · CGPA 8.80",
-  copyright: `© ${new Date().getFullYear()} Pasham Dhanush Reddy | Built with React`,
+  copyright: `© ${new Date().getFullYear()} Pasham Dhanush Reddy`,
 };
 
 export const emailjsConfig = {
