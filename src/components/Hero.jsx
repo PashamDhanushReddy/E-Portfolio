@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import heroVideo from '../assets/hero video/yusuf-hero.mp4';
-import heroImage from '../assets/about/yusuf-avatar.png';
+import heroImage from '../assets/about/dhanush1.png';
+import heroMobileImage from '../assets/about/dhanush2.png';
 import { heroContent, personalInfo, socialLinks } from '../data/portfolioData';
 const Hero = () => {
   const videoRef = useRef(null);
@@ -23,9 +24,14 @@ const Hero = () => {
   return (
     <section id="home" className="relative w-full h-[100dvh] min-h-[560px] overflow-hidden bg-black">
       <img
+        src={heroMobileImage}
+        alt="Hero Background Mobile"
+        className="md:hidden absolute top-0 left-0 w-full h-full object-cover z-0"
+      />
+      <img
         src={heroImage}
-        alt="Hero Background"
-        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        alt="Hero Background Desktop"
+        className="hidden md:block absolute top-0 left-0 w-full h-full object-cover z-0"
       />
       <div className="hidden lg:flex flex-col gap-6 fixed left-6 top-1/2 -translate-y-1/2 z-50 mix-blend-difference">
         <a
@@ -62,7 +68,7 @@ const Hero = () => {
           </svg>
         </a>
       </div>
-      <div className="absolute inset-0 z-20 px-4 sm:px-6 pb-12 sm:pb-20 md:pb-[8%] md:px-12 max-w-7xl mx-auto flex flex-col md:flex-row justify-center md:justify-between items-start md:items-end text-left w-full pt-16 md:pt-0">
+      <div className="absolute inset-0 z-20 px-4 sm:px-6 pb-12 sm:pb-20 md:pb-[8%] md:px-12 max-w-7xl mx-auto flex flex-col md:flex-row justify-end md:justify-between items-start md:items-end text-left w-full pt-16 md:pt-0">
         <div className="flex flex-col items-start text-left max-w-2xl w-full">
           <div
             data-aos="fade-up"

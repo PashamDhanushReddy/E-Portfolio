@@ -103,6 +103,8 @@ const ProjectCard = ({ project, aosDelay }) => (
 const Projects = () => {
   const [repoProjects, setRepoProjects] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [showAll, setShowAll] = useState(false);
+
   useEffect(() => {
     const fetchRepos = async () => {
       try {
@@ -137,8 +139,15 @@ const Projects = () => {
           };
         });
         const sortedProjects = mergedProjects.sort((a, b) => {
+          const aHasDemo = !!a.links.demo;
+          const bHasDemo = !!b.links.demo;
+          
+          if (aHasDemo && !bHasDemo) return -1;
+          if (!aHasDemo && bHasDemo) return 1;
+
           if (a.isFlagship && !b.isFlagship) return -1;
           if (!a.isFlagship && b.isFlagship) return 1;
+          
           return 0;
         });
         const finalizedProjects = sortedProjects.map((p, i) => ({
@@ -155,6 +164,9 @@ const Projects = () => {
     };
     fetchRepos();
   }, []);
+
+  const displayedProjects = showAll ? repoProjects : repoProjects.slice(0, 5);
+
   return (
     <section id="projects" className="bg-[#0a0a0a] pt-16 md:pt-24 pb-24 md:pb-32 px-4 sm:px-6 md:px-12 w-full relative overflow-hidden font-sans bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:80px_80px]">
       <div className="max-w-6xl mx-auto">
@@ -175,7 +187,7 @@ const Projects = () => {
           </div>
         ) : (
           <div className="flex flex-col gap-6 md:gap-8">
-            {repoProjects.map((project, index) => (
+            {displayedProjects.map((project, index) => (
               <ProjectCard 
                 key={project.id} 
                 project={project} 
@@ -184,20 +196,32 @@ const Projects = () => {
             ))}
           </div>
         )}
-        <div data-aos="fade-up" data-aos-delay="500" className="mt-16 flex justify-center">
-          <a
-            href={socialLinks.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 px-8 py-4 rounded-full border border-white/20 text-white font-bold text-lg hover:bg-white hover:text-black hover:shadow-[0_0_30px_rgba(255,255,255,0.15)] transition-all duration-500 group"
-          >
-            <GitHubIcon />
-            Explore All My Repositories
-            <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
-        </div>
+        
+        {!loading && repoProjects.length > 5 && (
+          <div data-aos="fade-up" data-aos-delay="500" className="mt-16 flex flex-col sm:flex-row justify-center items-center gap-4">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="flex items-center gap-3 px-8 py-4 rounded-full bg-[#ff2a2a] text-white font-bold text-lg hover:bg-red-600 hover:shadow-[0_0_20px_rgba(255,42,42,0.4)] transition-all duration-300 group"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+              </svg>
+              {showAll ? "Show Less Projects" : "View All Projects"}
+              <svg className={`w-5 h-5 transition-transform ${showAll ? 'rotate-180' : 'group-hover:translate-x-1'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={showAll ? "M5 15l7-7 7 7" : "M14 5l7 7m0 0l-7 7m7-7H3"} />
+              </svg>
+            </button>
+            <a
+              href={socialLinks.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-6 py-3.5 rounded-full border border-white/20 text-white/70 font-semibold hover:bg-white/5 hover:text-white transition-all duration-300"
+            >
+              <GitHubIcon />
+              My GitHub
+            </a>
+          </div>
+        )}
       </div>
     </section>
   );

@@ -340,13 +340,51 @@ export const certificates = {
   featured: [
     {
       name: "Git-Certified Python Developer",
-      issuer: "GeeksforGeeks (2025)",
+      issuer: "GeeksforGeeks",
       icon: "📜",
+      link: "https://drive.google.com/file/d/115tAh8gDB09vlYF3kZwNnNasD37wspC1/view?usp=sharing",
     },
     {
       name: "Android Developer Certificate",
       issuer: "EduSkills & Google for Developers & AICTE",
       icon: "📱",
+      link: "https://drive.google.com/file/d/1EmraJEwpkXAZdC4fQJExWixkJfgEP8aV/view?usp=sharing",
+    },
+    {
+      name: "Java Programing",
+      issuer: "NPTEL & IIT Kharagpur",
+      icon: "📜",
+      link: "https://drive.google.com/file/d/16eYoT3KgUN_KyAOR0y1PWANZi2Y5u6Aj/view?usp=sharing",
+    },
+    {
+      name: "CodeStorm 2024 – Third Place",
+      issuer: "Narsimha Reddy Engineering College",
+      icon: "🏆",
+      link: "https://drive.google.com/file/d/1Su3B7xyMaQFooLv6vSGKVwlEN5knQmL2/view?usp=sharing"
+    },
+    {
+      name: "Introduction to Machine Learning",
+      issuer: "NPTEL & IIT Madras",
+      icon: "📜",
+      link: "https://drive.google.com/file/d/11XtGKmwEehnqoAbw2KMbsCvcO5sLF0Sw/view?usp=sharing"
+    },
+    {
+      name: "Python Full Stack Internship",
+      issuer: "EduSkills Academy",
+      icon: "💻",
+      link: "https://drive.google.com/file/d/1s3a4NZc8xTKBvWJVj5MWPpdgm1gUJRCi/view?usp=sharing"
+    },
+    {
+      name: "Internship 6.0 – Taskera",
+      issuer: "Infosys Springboard",
+      icon: "💻",
+      link: "https://drive.google.com/file/d/14ypKmbHq0QJyxZdgiBYsuu9JMW6PExRA/view?usp=sharing"
+    },
+    {
+      name: "Artificial Intelligence Internship",
+      issuer: "InternSpark & Alfido Tech",
+      icon: "💻",
+      link: "https://drive.google.com/file/d/1eFeUJGdwUyal79g9IfxwB8fjahkmnXZ5/view?usp=sharing"
     }
   ],
   viewAllUrl: "#",
