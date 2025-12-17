@@ -78,7 +78,8 @@ export const technicalSkills = {
         { name: "Python", level: 90 },
         { name: "SQL", level: 85 },
         { name: "HTML", level: 95 },
-        { name: "CSS", level: 90 }
+        { name: "CSS", level: 90 },
+        { name: "Dart", level: 80 }
       ]
     },
     {
@@ -87,7 +88,8 @@ export const technicalSkills = {
         { name: "Django", level: 90 },
         { name: "FastAPI", level: 85 },
         { name: "React", level: 80 },
-        { name: "Flutter", level: 75 }
+        { name: "Flutter", level: 75 },
+        { name: "Flask", level: 80 }
       ]
     },
     {
@@ -98,11 +100,19 @@ export const technicalSkills = {
       ]
     },
     {
+      title: "Machine Learning & AI",
+      skills: [
+        { name: "Machine Learning", level: 85 },
+        { name: "Scikit-Learn", level: 80 }
+      ]
+    },
+    {
       title: "Tools & Others",
       skills: [
         { name: "Git", level: 90 },
         { name: "GitHub", level: 90 },
         { name: "Render", level: 85 },
+        { name: "Anaconda with JupyterLab", level: 85 },
         { name: "Prompt Engineering", level: 80 }
       ]
     }
