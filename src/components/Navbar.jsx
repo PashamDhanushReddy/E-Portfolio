@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { personalInfo } from '../data/portfolioData';
+import logo from '../assets/favicon.svg';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -43,8 +44,9 @@ const Navbar = () => {
           <a 
             href="#" 
             onClick={(e) => scrollToSection(e, 'home')}
-            className="text-white text-xl sm:text-2xl font-black tracking-tight whitespace-nowrap"
+            className="text-white text-xl sm:text-2xl font-black tracking-tight whitespace-nowrap flex items-center gap-2"
           >
+            <img src={logo} alt="Logo" className="w-8 h-8 sm:w-10 sm:h-10" />
             {personalInfo.brandName}<span className="text-red-500">.</span>
           </a>
         </div>

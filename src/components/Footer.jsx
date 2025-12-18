@@ -1,5 +1,6 @@
 import React from 'react';
 import { personalInfo, socialLinks, footerContent } from '../data/portfolioData';
+import logo from '../assets/favicon.svg';
 const Footer = () => {
   const scrollToSection = (e, id) => {
     e.preventDefault();
@@ -16,7 +17,8 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 mb-16 text-center md:text-left">
           <div className="flex flex-col items-center md:items-start col-span-1 lg:col-span-2">
-            <h3 className="text-3xl font-black text-white tracking-tight mb-4 flex items-center gap-1">
+            <h3 className="text-3xl font-black text-white tracking-tight mb-4 flex items-center gap-2">
+              <img src={logo} alt="Logo" className="w-10 h-10" />
               {personalInfo.brandName}<span className="text-[#ff2a2a]">.</span>
             </h3>
             <div className="flex flex-col gap-2 text-white/60 font-medium">
