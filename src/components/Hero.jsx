@@ -26,7 +26,7 @@ const Hero = () => {
       <img
         src={heroMobileImage}
         alt="Hero Background Mobile"
-        className="md:hidden absolute top-0 left-0 w-full h-full object-cover z-0"
+        className="md:hidden absolute top-0 left-0 w-full h-full object-cover object-[center_90%] z-0"
       />
       <img
         src={heroImage}
