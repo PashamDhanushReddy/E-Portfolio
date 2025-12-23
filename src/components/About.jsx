@@ -39,19 +39,16 @@ const About = () => {
     <section id="about" className="bg-[#ff2a2a] pt-16 md:pt-20 pb-28 md:pb-40 px-4 sm:px-6 md:px-12 w-full relative overflow-hidden font-sans">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-10 md:gap-16 items-center md:items-start text-center md:text-left">
         <div className="flex flex-col items-center w-full md:w-[350px] shrink-0 mt-8 md:mt-0">
-          <div data-aos="drop-bounce" className="relative flex justify-center w-full">
-            <div className="absolute -top-32 left-1/2 w-3 h-40 bg-black transform -translate-x-1/2 shadow-inner z-0"></div>
-            <div className="absolute -top-6 left-1/2 w-6 h-12 bg-gray-300 rounded border border-gray-400 transform -translate-x-1/2 z-10 shadow-[0_2px_10px_rgba(0,0,0,0.3)]"></div>
-            <div className="bg-gray-900 w-full max-w-[260px] sm:max-w-[280px] rounded-2xl p-3 shadow-[0_20px_40px_rgba(0,0,0,0.4)] relative z-20 transform -rotate-3 hover:rotate-0 transition-transform duration-500">
-              <div className="absolute -top-3 left-1/2 w-16 h-6 bg-gray-900 rounded-t-xl transform -translate-x-1/2 flex justify-center items-center">
-                <div className="w-8 h-2 bg-black/30 rounded-full shadow-inner"></div>
-              </div>
-              <div className="w-full aspect-[3/4] overflow-hidden rounded-xl bg-gray-800 border-2 border-transparent">
+          <div data-aos="flip-left" data-aos-duration="1000" className="relative flex justify-center w-full group">
+            <div className="absolute -inset-2 bg-gradient-to-r from-black via-gray-800 to-black rounded-[2.5rem] blur opacity-40 group-hover:opacity-75 transition duration-1000 group-hover:duration-500"></div>
+            <div className="relative bg-white/10 backdrop-blur-xl w-full max-w-[260px] sm:max-w-[280px] rounded-[2rem] p-4 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] border border-white/20 transition-all duration-500 hover:-translate-y-4 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+              <div className="w-full aspect-[3/4] overflow-hidden rounded-2xl relative bg-black/10">
                 <img 
                   src={stackImage} 
                   alt="Pasham Dhanush Reddy — Software Engineer"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
             </div>
           </div>
